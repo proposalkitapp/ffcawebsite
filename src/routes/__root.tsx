@@ -79,10 +79,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Firstfruits Christian Academy" },
       { name: "description", content: "Firstfruits Christian Academy — a co-educational Christian secondary school in Igbo-Etche, Rivers State, offering excellence in academics, boarding, and Christian values." },
+      { property: "og:site_name", content: "Firstfruits Christian Academy" },
       { property: "og:title", content: "Firstfruits Christian Academy" },
       { property: "og:description", content: "Obedience and Excellence. A BECE and WAEC approved Christian secondary school in Rivers State, Nigeria." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
