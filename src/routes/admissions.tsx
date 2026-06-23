@@ -7,7 +7,12 @@ export const Route = createFileRoute("/admissions")({
     meta: [
       { title: "Admissions — Firstfruits Christian Academy" },
       { name: "description", content: "How to apply for admission into Firstfruits Christian Academy junior and senior secondary school." },
+      { property: "og:title", content: "Admissions — Firstfruits Christian Academy" },
+      { property: "og:description", content: "Application process and requirements for JSS and SSS admissions." },
+      { property: "og:url", content: "/admissions" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "/admissions" }],
   }),
   component: Admissions,
 });
