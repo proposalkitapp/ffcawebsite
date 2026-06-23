@@ -7,7 +7,12 @@ export const Route = createFileRoute("/about")({
     meta: [
       { title: "About — Firstfruits Christian Academy" },
       { name: "description", content: "Our vision, mission, and Christian philosophy of education at Firstfruits Christian Academy." },
+      { property: "og:title", content: "About Firstfruits Christian Academy" },
+      { property: "og:description", content: "Vision, mission, and the people behind Firstfruits Christian Academy." },
+      { property: "og:url", content: "/about" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: About,
 });
