@@ -170,16 +170,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-20 bg-ink text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <span className="text-sm font-semibold text-white/60 uppercase tracking-[0.2em]">Parents' Testimony</span>
-          <blockquote className="mt-6 text-2xl md:text-3xl font-medium leading-snug">
-            "I'm thrilled with the education and care my child receives at Firstfruits Christian Academy. I wholeheartedly recommend this school to anyone seeking a well-rounded education in a nurturing environment."
-          </blockquote>
-          <div className="mt-6 text-white/70 text-sm">— Faith Omowhe, Parent</div>
-        </div>
-      </section>
+      {/* Testimonials carousel */}
+      <TestimonialsCarousel />
 
       {/* CTA */}
       <section className="py-20">
