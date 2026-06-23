@@ -1,18 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { SiteLayout } from "@/components/SiteLayout";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { submitContactMessage } from "@/lib/contact.functions";
+import { Mail, MapPin, Phone, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Firstfruits Christian Academy" },
-      { name: "description", content: "Get in touch with Firstfruits Christian Academy in Chokwota, Igbo-Etche, Rivers State." },
+      { name: "description", content: "Get in touch with Firstfruits Christian Academy in Chokwota, Igbo-Etche, Rivers State. Phone, email, and inquiry form." },
+      { property: "og:title", content: "Contact Firstfruits Christian Academy" },
+      { property: "og:description", content: "Phone, email and inquiry form for Firstfruits Christian Academy." },
+      { property: "og:url", content: "/contact" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "/contact" }],
   }),
   component: Contact,
 });
 
 function Contact() {
+  const submit = useServerFn(submitContactMessage);
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm({ ...form, [k]: e.target.value });
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+    setError(null);
+    try {
+      await submit({ data: form });
+      setStatus("sent");
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    }
+  };
+
   return (
     <SiteLayout>
       <section className="bg-surface py-20 border-b border-border">
@@ -43,28 +73,46 @@ function Contact() {
             ))}
           </div>
 
-          <form className="rounded-lg border border-border bg-white p-8 space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form onSubmit={onSubmit} className="rounded-lg border border-border bg-white p-8 space-y-4">
             <h2 className="text-xl font-bold text-ink">Send us a message</h2>
+
+            {status === "sent" && (
+              <div className="flex items-start gap-3 rounded-md bg-green-50 border border-green-200 p-4 text-sm text-green-800">
+                <CheckCircle2 className="h-5 w-5 mt-0.5 shrink-0" />
+                <div>
+                  <div className="font-semibold">Message sent — thank you!</div>
+                  <div>We've received your inquiry and will be in touch shortly.</div>
+                </div>
+              </div>
+            )}
+            {status === "error" && error && (
+              <div className="rounded-md bg-red-50 border border-red-200 p-4 text-sm text-red-700">{error}</div>
+            )}
+
             <div className="grid sm:grid-cols-2 gap-4">
               <label className="block text-sm">
                 <span className="text-ink/80 font-medium">Full name</span>
-                <input className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
+                <input required maxLength={120} value={form.name} onChange={update("name")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
               </label>
               <label className="block text-sm">
                 <span className="text-ink/80 font-medium">Email</span>
-                <input type="email" className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
+                <input required type="email" maxLength={255} value={form.email} onChange={update("email")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
               </label>
             </div>
             <label className="block text-sm">
               <span className="text-ink/80 font-medium">Subject</span>
-              <input className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
+              <input required maxLength={200} value={form.subject} onChange={update("subject")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
             </label>
             <label className="block text-sm">
               <span className="text-ink/80 font-medium">Message</span>
-              <textarea rows={5} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
+              <textarea required maxLength={5000} rows={5} value={form.message} onChange={update("message")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
             </label>
-            <button className="inline-flex items-center rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">
-              Send Message
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="inline-flex items-center rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 disabled:opacity-60"
+            >
+              {status === "sending" ? "Sending…" : "Send Message"}
             </button>
           </form>
         </div>

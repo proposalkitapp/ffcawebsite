@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { GraduationCap, BookOpen, Building2, Check, ArrowRight, Beaker, Library, Monitor, BedDouble } from "lucide-react";
 import hero from "@/assets/hero-school.jpg";
 import students from "@/assets/students.jpg";
@@ -15,6 +16,30 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "A co-educational Christian secondary school in Igbo-Etche, Rivers State. BECE & WAEC approved with fully functional boarding facilities." },
       { property: "og:title", content: "Firstfruits Christian Academy" },
       { property: "og:description", content: "Raising a generation grounded in Godly Christian principles and academic excellence." },
+      { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:image", content: "/og-image.jpg" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "School",
+          name: "Firstfruits Christian Academy",
+          description: "Co-educational Christian secondary school in Igbo-Etche, Rivers State.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Adjacent Government Estate, Opposite Palm View Estate, Chokwota",
+            addressRegion: "Rivers State",
+            addressCountry: "NG",
+          },
+          email: "info@firstfruitsacademy.edu.ng",
+          slogan: "Obedience and Excellence",
+        }),
+      },
     ],
   }),
   component: Home,
