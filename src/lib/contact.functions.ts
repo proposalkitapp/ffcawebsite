@@ -40,17 +40,31 @@ export const submitContactMessage = createServerFn({ method: "POST" })
     return { ok: true };
   });
 
+const listSchema = z.object({
+  page: z.number().int().min(1).default(1),
+  pageSize: z.number().int().min(5).max(100).default(10),
+  sort: z.enum(["created_at", "name", "email", "subject", "status"]).default("created_at"),
+  order: z.enum(["asc", "desc"]).default("desc"),
+  status: z.enum(["all", "new", "read", "archived"]).default("all"),
+});
+
 export const listContactMessages = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
-  .handler(async ({ context }) => {
+  .inputValidator((d: unknown) => listSchema.parse(d ?? {}))
+  .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
     if (!(await isAdmin(supabase, userId))) throw new Error("Forbidden");
-    const { data, error } = await supabase
+    const from = (data.page - 1) * data.pageSize;
+    const to = from + data.pageSize - 1;
+    let q = supabase
       .from("contact_submissions")
-      .select("*")
-      .order("created_at", { ascending: false });
+      .select("*", { count: "exact" })
+      .order(data.sort, { ascending: data.order === "asc" })
+      .range(from, to);
+    if (data.status !== "all") q = q.eq("status", data.status);
+    const { data: rows, error, count } = await q;
     if (error) throw new Error(error.message);
-    return data ?? [];
+    return { rows: rows ?? [], total: count ?? 0, page: data.page, pageSize: data.pageSize };
   });
 
 export const updateMessageStatus = createServerFn({ method: "POST" })
