@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Mail, MapPin, Phone, Facebook, Instagram, Youtube } from "lucide-react";
+import logo from "@/assets/logo.jpg";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -18,7 +19,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <div className="hidden md:block bg-ink text-white/80 text-xs">
         <div className="max-w-7xl mx-auto px-6 h-10 flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <span className="inline-flex items-center gap-2"><Mail className="h-3.5 w-3.5" /> info@firstfruitsacademy.edu.ng</span>
+            <span className="inline-flex items-center gap-2"><Mail className="h-3.5 w-3.5" /> firstfruit.academy@gmail.com</span>
+            <span className="inline-flex items-center gap-2"><Phone className="h-3.5 w-3.5" /> 09056215807, 08066170299</span>
             <span className="inline-flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /> Chokwota, Igbo-Etche, Rivers State</span>
           </div>
           <div className="flex items-center gap-4">
@@ -33,7 +35,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-md bg-primary text-primary-foreground grid place-items-center font-bold">F</div>
+            <img src={logo} alt="Firstfruits Christian Academy logo" width={44} height={44} className="h-11 w-11 rounded-md object-contain bg-white" />
             <div className="leading-tight">
               <div className="font-bold text-ink">Firstfruits</div>
               <div className="text-[11px] tracking-wide uppercase text-muted-foreground">Christian Academy</div>
@@ -83,10 +85,10 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
         <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-10 w-10 rounded-md bg-primary text-primary-foreground grid place-items-center font-bold">F</div>
+              <img src={logo} alt="Firstfruits Christian Academy" width={44} height={44} className="h-11 w-11 rounded-md object-contain bg-white" />
               <div className="text-white font-bold">Firstfruits Christian Academy</div>
             </div>
-            <p className="text-sm leading-relaxed">Raising a generation grounded in Godly Christian principles, academic excellence, and sound character.</p>
+            <p className="text-sm leading-relaxed">Integrity and Excellence. Raising a generation grounded in Godly Christian principles, academic excellence, and sound character.</p>
           </div>
           <div>
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
@@ -109,8 +111,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0" /> Adjacent to Government Estate, Opposite Palm View Estate, Chokwota, Igbo-Etche, Rivers State</li>
-              <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0" /> info@firstfruitsacademy.edu.ng</li>
-              <li className="flex gap-2"><Phone className="h-4 w-4 shrink-0" /> +234 (0) 800 000 0000</li>
+              <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0" /> firstfruit.academy@gmail.com</li>
+              <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0" /> 09056215807, 08066170299, 0808652232</li>
             </ul>
           </div>
         </div>

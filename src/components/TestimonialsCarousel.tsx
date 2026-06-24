@@ -4,27 +4,33 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "I'm thrilled with the education and care my child receives at Firstfruits Christian Academy. I wholeheartedly recommend this school to anyone seeking a well-rounded education in a nurturing environment.",
+      "The school's serene location and top-notch security give me peace of mind. Academically, the school excels, with dedicated teachers and well-equipped science laboratories that foster hands-on learning. I wholeheartedly recommend this school to anyone seeking a well-rounded education in a nurturing environment.",
     name: "Faith Omowhe",
     role: "Parent",
   },
   {
     quote:
-      "The teachers at Firstfruits are dedicated and the discipline is excellent. My son has grown both academically and spiritually since joining.",
-    name: "Mr. & Mrs. Eze",
-    role: "Parents",
+      "Firstfruits Christian Academy is a beacon of academic excellence and spiritual growth. As a student, I'm proud to call it my second home. Our teachers are passionate and dedicated, making complex concepts easy to grasp.",
+    name: "Chukwu-Ebuka Obinna",
+    role: "JSS 1 Student",
   },
   {
     quote:
-      "A safe boarding environment, sound Christian values, and strong WAEC results — Firstfruits is everything we hoped a secondary school would be.",
-    name: "Dr. A. Ibekwe",
-    role: "Parent",
+      "FFCA Boarding House is truly a home away from home. The rooms are spacious and neat, the food is always delicious, and the staff are friendly, caring, and always there to support us.",
+    name: "Bralatei Ayebatari Love",
+    role: "JSS 3 Student",
   },
   {
     quote:
-      "From the science labs to the daily devotions, every part of school life is designed to build character and competence. I'm proud to be a Firstfruits student.",
-    name: "Chiamaka O.",
-    role: "SSS 3 Student",
+      "My first day at Firstfruits was filled with pleasant surprises. The teachers are well-coordinated and well-dressed, and my classmates gave me a warm welcome. I'm grateful to God for bringing me back to Firstfruits.",
+    name: "Ezenwa Sophia",
+    role: "JSS 2 Student",
+  },
+  {
+    quote:
+      "Mystery Beyond the Veil inspired me to seek God more. FFCA is not just helping me grow academically, but spiritually too — and for that, I'm truly grateful.",
+    name: "Samuel Joshua",
+    role: "JSS 2 Student",
   },
 ];
 

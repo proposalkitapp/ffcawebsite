@@ -58,8 +58,8 @@ function Contact() {
           <div className="space-y-6">
             {[
               { icon: MapPin, t: "Address", d: "Adjacent Government Estate, Opposite Palm View Estate, Chokwota, Igbo-Etche, Rivers State, Nigeria." },
-              { icon: Mail, t: "Email", d: "info@firstfruitsacademy.edu.ng" },
-              { icon: Phone, t: "Phone", d: "+234 (0) 800 000 0000" },
+              { icon: Mail, t: "Email", d: "firstfruit.academy@gmail.com" },
+              { icon: Phone, t: "Phone", d: "09056215807, 08066170299, 0808652232" },
             ].map((c) => (
               <div key={c.t} className="flex gap-4 rounded-lg border border-border bg-white p-6">
                 <div className="h-11 w-11 rounded-md bg-primary/10 text-primary grid place-items-center shrink-0">
