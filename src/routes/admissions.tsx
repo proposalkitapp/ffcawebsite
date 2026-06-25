@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { Check } from "lucide-react";
+import { CalendarDays, Check } from "lucide-react";
 
 export const Route = createFileRoute("/admissions")({
   head: () => ({
@@ -38,7 +38,7 @@ function Admissions() {
                   { t: "Obtain & complete the application form", d: "Forms are available at the school office or by request via email." },
                   { t: "Submit required documents", d: "Recent passport photographs, birth certificate, and last school report." },
                   { t: "Entrance examination & interview", d: "Applicants sit a written assessment in Mathematics and English, followed by a short interview with parents/guardians." },
-                  { t: "Admission offer & enrolment", d: "Successful applicants receive an offer letter with details on fees and resumption." },
+                  { t: "Admission offer & enrolment", d: "Successful applicants receive an offer letter with details on fees and resumption. The 2025/2026 academic session commences on 5th September, 2025." },
                 ].map((s, i) => (
                   <li key={i} className="flex gap-4">
                     <div className="shrink-0 h-9 w-9 rounded-full bg-primary text-primary-foreground grid place-items-center font-semibold">{i + 1}</div>
@@ -68,6 +68,28 @@ function Admissions() {
                 ))}
               </ul>
             </div>
+
+            <div className="rounded-lg border border-border bg-surface p-8">
+              <div className="flex items-center gap-3">
+                <div className="h-11 w-11 rounded-md bg-primary/10 text-primary grid place-items-center">
+                  <CalendarDays className="h-5 w-5" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-ink">2025 Admissions & Summer Lesson</h2>
+                  <p className="text-sm text-muted-foreground">From the school announcement</p>
+                </div>
+              </div>
+              <div className="mt-6 grid md:grid-cols-2 gap-4 text-sm">
+                <div className="rounded-md bg-white border border-border p-5">
+                  <h3 className="font-semibold text-ink">Academic Session</h3>
+                  <p className="mt-2 text-muted-foreground leading-relaxed">Admitting into Junior Secondary 1–3 and Senior Secondary 1–3. The 2025/2026 academic session commences on 5th September, 2025.</p>
+                </div>
+                <div className="rounded-md bg-white border border-border p-5">
+                  <h3 className="font-semibold text-ink">Summer Lesson</h3>
+                  <p className="mt-2 text-muted-foreground leading-relaxed">Runs from 4th–22nd August 2025, featuring life skills such as soap making, catering, baking, science practicals in Physics and Chemistry, and JSS/SSS English and Mathematics.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <aside className="rounded-lg border border-border bg-surface p-8 h-fit">
@@ -76,11 +98,11 @@ function Admissions() {
             <dl className="mt-6 space-y-3 text-sm">
               <div>
                 <dt className="text-muted-foreground">Email</dt>
-                <dd className="text-ink font-medium">admissions@firstfruitsacademy.edu.ng</dd>
+                <dd className="text-ink font-medium">firstfruit.academy@gmail.com</dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Phone</dt>
-                <dd className="text-ink font-medium">+234 (0) 800 000 0000</dd>
+                <dd className="text-ink font-medium">09056215807, 08066170299, 0808652232</dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Address</dt>

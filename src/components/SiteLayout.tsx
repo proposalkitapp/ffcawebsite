@@ -88,7 +88,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
               <img src={logo} alt="Firstfruits Christian Academy" width={44} height={44} className="h-11 w-11 rounded-md object-contain bg-white" />
               <div className="text-white font-bold">Firstfruits Christian Academy</div>
             </div>
-            <p className="text-sm leading-relaxed">Integrity and Excellence. Raising a generation grounded in Godly Christian principles, academic excellence, and sound character.</p>
+            <p className="text-sm leading-relaxed">Obedience and Excellence. Raising a generation grounded in Godly Christian principles, academic excellence, and sound character.</p>
           </div>
           <div>
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>

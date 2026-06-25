@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
-import { GraduationCap, BookOpen, Building2, Check, ArrowRight, Beaker, Library, Monitor, BedDouble } from "lucide-react";
+import { GraduationCap, BookOpen, Building2, Check, ArrowRight, Beaker, Library, Monitor, BedDouble, Trophy, Sprout, Clock, ShieldCheck } from "lucide-react";
 import hero from "@/assets/hero-school.jpg";
 import students from "@/assets/students.jpg";
 import lab from "@/assets/lab.jpg";
@@ -75,16 +75,16 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6 -mt-16 relative z-10">
           <div className="grid md:grid-cols-3 bg-white rounded-lg shadow-xl border border-border overflow-hidden">
             {[
-              { icon: GraduationCap, title: "Graduation", desc: "Approved BECE and WAEC centre with strong academic outcomes." },
-              { icon: BookOpen, title: "Christian Values", desc: "Faith-based education rooted in obedience, excellence, and integrity." },
-              { icon: Building2, title: "Boarding Facilities", desc: "A safe, well-equipped home away from home for boarding students." },
+              { icon: GraduationCap, title: "BECE & WAEC Centre", desc: "Admitting into JSS 1–3 and SSS 1–3 with approved examination centres.", to: "/admissions" as const, cta: "Admission Details" },
+              { icon: BookOpen, title: "Christian Values", desc: "Daily devotion, Bible study, obedience, excellence, discipline and sound morals.", to: "/about" as const, cta: "Our Mission" },
+              { icon: Building2, title: "Boarding Facilities", desc: "Spacious rooms, caring hostel parents, treated water, warm showers and meals.", to: "/academics" as const, cta: "View Facilities" },
             ].map((f, i) => (
               <div key={f.title} className={`p-8 ${i < 2 ? "md:border-r border-border" : ""}`}>
                 <f.icon className="h-7 w-7 text-primary" />
                 <h3 className="mt-4 font-semibold text-ink">{f.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{f.desc}</p>
-                <Link to="/about" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-ink hover:text-primary">
-                  Learn More <ArrowRight className="h-3.5 w-3.5" />
+                <Link to={f.to} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-ink hover:text-primary">
+                  {f.cta} <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             ))}
@@ -92,34 +92,61 @@ function Home() {
         </div>
       </section>
 
-      {/* About */}
+      {/* Explore Firstfruits */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <img src={students} alt="Firstfruits students" width={1000} height={1200} loading="lazy" className="rounded-lg shadow-lg w-full h-[520px] object-cover" />
           </div>
           <div>
-            <span className="text-sm font-semibold text-primary">About Firstfruits</span>
+            <span className="text-sm font-semibold text-primary">Explore Firstfruits</span>
             <h2 className="mt-3 text-4xl font-bold text-ink leading-tight">A Citadel of Learning rooted in Christian Values</h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
               Firstfruits Christian Academy is established to offer high quality educational services based on Christian values. Located in a quiet, secure, and conducive setting in Chokwota, Igbo-Etche — within easy reach of Port Harcourt — we raise students with the fear of God and a sound academic foundation.
             </p>
-            <ul className="mt-6 space-y-3">
+            <div className="mt-8 grid sm:grid-cols-2 gap-4">
               {[
-                "Access to a complete junior and senior secondary curriculum",
-                "Learn the latest skills in modern laboratories and computer studies",
-                "Develop character through obedience, excellence and discipline",
-                "Fully functional boarding facilities — a true home away from home",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3 text-sm">
-                  <span className="mt-0.5 h-5 w-5 rounded-full bg-primary/10 grid place-items-center"><Check className="h-3 w-3 text-primary" /></span>
-                  <span className="text-ink/80">{t}</span>
-                </li>
+                { icon: ShieldCheck, title: "Secure Campus", desc: "Fully fenced, serene environment for focused learning.", to: "/about" as const },
+                { icon: Beaker, title: "Practical Learning", desc: "Science practicals, laboratories and computer skills.", to: "/academics" as const },
+                { icon: Trophy, title: "Sports & Talent", desc: "Inter-house sports, debate, spelling bee, music and drama.", to: "/academics" as const },
+                { icon: Sprout, title: "Life Skills", desc: "Summer lessons include soap making, catering and baking.", to: "/admissions" as const },
+              ].map((item) => (
+                <Link key={item.title} to={item.to} className="group rounded-lg border border-border bg-white p-5 hover:border-primary/40 hover:shadow-md transition">
+                  <item.icon className="h-6 w-6 text-primary" />
+                  <h3 className="mt-3 font-semibold text-ink group-hover:text-primary">{item.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </Link>
               ))}
-            </ul>
-            <Link to="/about" className="mt-8 inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">
-              Read More <ArrowRight className="h-4 w-4" />
-            </Link>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/about" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">
+                Read More <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold text-ink hover:border-primary/40 hover:text-primary">
+                Visit or Enquire <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="rounded-2xl bg-surface border border-border p-8 md:p-10 grid md:grid-cols-3 gap-6">
+            {[
+              { icon: Clock, title: "Morning Devotion", desc: "Students and teachers gather Monday to Friday from 7:45 am to 8:10 am for prayer, worship, Bible reading and encouragement.", to: "/academics" as const },
+              { icon: GraduationCap, title: "2025/2026 Session", desc: "The academic session commences on 5th September, 2025, with admission into Junior and Senior Secondary classes.", to: "/admissions" as const },
+              { icon: Monitor, title: "Digital Readiness", desc: "Our computer laboratory builds skills from basic computer literacy to programming, web development and project-based learning.", to: "/academics" as const },
+            ].map((item) => (
+              <article key={item.title} className="rounded-xl bg-white border border-border p-6">
+                <item.icon className="h-6 w-6 text-primary" />
+                <h3 className="mt-4 font-semibold text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                <Link to={item.to} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Learn More <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
