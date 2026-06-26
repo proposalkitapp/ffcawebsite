@@ -55,7 +55,7 @@ function Home() {
       {/* Hero */}
       <section className="relative">
         <div className="relative h-[640px] overflow-hidden">
-          <img src={hero} alt="Firstfruits Christian Academy campus" width={1600} height={1000} className="absolute inset-0 w-full h-full object-cover" />
+          <img src={hero} alt="Firstfruits Christian Academy campus building exterior with students" width={1600} height={1000} fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/20" />
           <div className="relative max-w-7xl mx-auto px-6 h-full flex items-center">
             <div className="max-w-2xl text-white">
