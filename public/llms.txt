@@ -1,0 +1,13 @@
+# Firstfruits Christian Academy
+
+> A co-educational Christian secondary school in Igbo-Etche, Rivers State, offering BECE & WAEC approved education, boarding facilities, and Christ-centered values.
+
+Firstfruits Christian Academy is a private secondary school built on the motto "Obedience and Excellence." The site shares the school's vision, academic programs, admission process, facilities, and contact information.
+
+## Pages
+
+- [Home](/): Welcome, highlights, facilities, testimonials, and calls to action.
+- [About](/about): Vision, mission, motto, and message from the Head of School.
+- [Academics](/academics): Curriculum, facilities, and student life programs.
+- [Admissions](/admissions): Application process, requirements, and session dates.
+- [Contact](/contact): School contact details and inquiry form.
