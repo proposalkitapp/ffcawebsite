@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Mail, MapPin, Phone, Facebook, Instagram, Youtube } from "lucide-react";
+import { Menu, X, Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const nav = [
@@ -15,21 +15,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      {/* Top utility bar */}
-      <div className="hidden md:block bg-ink text-white/80 text-xs">
-        <div className="max-w-7xl mx-auto px-6 h-10 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <span className="inline-flex items-center gap-2"><Mail className="h-3.5 w-3.5" /> firstfruit.academy@gmail.com</span>
-            <span className="inline-flex items-center gap-2"><Phone className="h-3.5 w-3.5" /> 09056215807, 08066170299</span>
-            <span className="inline-flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /> Chokwota, Igbo-Etche, Rivers State</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a href="#" aria-label="Facebook" className="hover:text-white"><Facebook className="h-3.5 w-3.5" /></a>
-            <a href="#" aria-label="Instagram" className="hover:text-white"><Instagram className="h-3.5 w-3.5" /></a>
-            <a href="#" aria-label="YouTube" className="hover:text-white"><Youtube className="h-3.5 w-3.5" /></a>
-          </div>
-        </div>
-      </div>
+
 
       {/* Header */}
       <header className="sticky top-0 z-40 bg-white border-b border-border">
