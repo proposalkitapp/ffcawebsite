@@ -137,16 +137,16 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="rounded-2xl bg-surface border border-border p-8 md:p-10 grid md:grid-cols-3 gap-6">
             {[
-              { icon: Clock, title: "Morning Devotion", desc: "Students and teachers gather Monday to Friday from 7:45 am to 8:10 am for prayer, worship, Bible reading and encouragement.", to: "/academics" as const },
-              { icon: GraduationCap, title: "2025/2026 Session", desc: "The academic session commences on 5th September, 2025, with admission into Junior and Senior Secondary classes.", to: "/admissions" as const },
-              { icon: Monitor, title: "Digital Readiness", desc: "Our computer laboratory builds skills from basic computer literacy to programming, web development and project-based learning.", to: "/academics" as const },
+              { icon: Clock, title: "Morning Devotion", desc: "Students and teachers gather Monday to Friday from 7:45 am to 8:10 am for prayer, worship, Bible reading and encouragement.", to: "/academics" as const, cta: "See our academic programme" },
+              { icon: GraduationCap, title: "2025/2026 Session", desc: "The academic session commences on 5th September, 2025, with admission into Junior and Senior Secondary classes.", to: "/admissions" as const, cta: "Start an application" },
+              { icon: Monitor, title: "Digital Readiness", desc: "Our computer laboratory builds skills from basic computer literacy to programming, web development and project-based learning.", to: "/academics" as const, cta: "Explore our curriculum" },
             ].map((item) => (
               <article key={item.title} className="rounded-xl bg-white border border-border p-6">
                 <item.icon className="h-6 w-6 text-primary" />
                 <h3 className="mt-4 font-semibold text-ink">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 <Link to={item.to} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                  Learn More <ArrowRight className="h-3.5 w-3.5" />
+                  {item.cta} <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </article>
             ))}
