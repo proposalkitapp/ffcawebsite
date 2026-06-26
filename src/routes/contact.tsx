@@ -90,23 +90,23 @@ function Contact() {
             )}
 
             <div className="grid sm:grid-cols-2 gap-4">
-              <label className="block text-sm">
-                <span className="text-ink/80 font-medium">Full name</span>
-                <input required maxLength={120} value={form.name} onChange={update("name")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
-              </label>
-              <label className="block text-sm">
-                <span className="text-ink/80 font-medium">Email</span>
-                <input required type="email" maxLength={255} value={form.email} onChange={update("email")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
-              </label>
+              <div className="block text-sm">
+                <label htmlFor="contact-name" className="text-ink/80 font-medium">Full name</label>
+                <input id="contact-name" name="name" autoComplete="name" required maxLength={120} value={form.name} onChange={update("name")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
+              </div>
+              <div className="block text-sm">
+                <label htmlFor="contact-email" className="text-ink/80 font-medium">Email</label>
+                <input id="contact-email" name="email" autoComplete="email" required type="email" maxLength={255} value={form.email} onChange={update("email")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
+              </div>
             </div>
-            <label className="block text-sm">
-              <span className="text-ink/80 font-medium">Subject</span>
-              <input required maxLength={200} value={form.subject} onChange={update("subject")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
-            </label>
-            <label className="block text-sm">
-              <span className="text-ink/80 font-medium">Message</span>
-              <textarea required maxLength={5000} rows={5} value={form.message} onChange={update("message")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
-            </label>
+            <div className="block text-sm">
+              <label htmlFor="contact-subject" className="text-ink/80 font-medium">Subject</label>
+              <input id="contact-subject" name="subject" required maxLength={200} value={form.subject} onChange={update("subject")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
+            </div>
+            <div className="block text-sm">
+              <label htmlFor="contact-message" className="text-ink/80 font-medium">Message</label>
+              <textarea id="contact-message" name="message" required maxLength={5000} rows={5} value={form.message} onChange={update("message")} className="mt-1.5 w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring" />
+            </div>
             <button
               type="submit"
               disabled={status === "sending"}

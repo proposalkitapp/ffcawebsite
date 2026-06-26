@@ -16,12 +16,15 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "A co-educational Christian secondary school in Igbo-Etche, Rivers State. BECE & WAEC approved with fully functional boarding facilities." },
       { property: "og:title", content: "Firstfruits Christian Academy" },
       { property: "og:description", content: "Raising a generation grounded in Godly Christian principles and academic excellence." },
-      { property: "og:image", content: "/og-image.jpg" },
-      { property: "og:url", content: "/" },
+      { property: "og:image", content: "https://ffcawebsite.lovable.app/og-image.jpg" },
+      { property: "og:url", content: "https://ffcawebsite.lovable.app/" },
       { property: "og:type", content: "website" },
-      { name: "twitter:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "https://ffcawebsite.lovable.app/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "https://ffcawebsite.lovable.app/" },
+      { rel: "preload", as: "image", href: hero, fetchpriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -52,7 +55,7 @@ function Home() {
       {/* Hero */}
       <section className="relative">
         <div className="relative h-[640px] overflow-hidden">
-          <img src={hero} alt="Firstfruits Christian Academy campus" width={1600} height={1000} className="absolute inset-0 w-full h-full object-cover" />
+          <img src={hero} alt="Firstfruits Christian Academy campus building exterior with students" width={1600} height={1000} fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/20" />
           <div className="relative max-w-7xl mx-auto px-6 h-full flex items-center">
             <div className="max-w-2xl text-white">
@@ -120,10 +123,10 @@ function Home() {
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/about" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">
-                Read More <ArrowRight className="h-4 w-4" />
+                Read our full story <ArrowRight className="h-4 w-4" />
               </Link>
               <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold text-ink hover:border-primary/40 hover:text-primary">
-                Visit or Enquire <ArrowRight className="h-4 w-4" />
+                Visit or enquire about admissions <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -134,16 +137,16 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="rounded-2xl bg-surface border border-border p-8 md:p-10 grid md:grid-cols-3 gap-6">
             {[
-              { icon: Clock, title: "Morning Devotion", desc: "Students and teachers gather Monday to Friday from 7:45 am to 8:10 am for prayer, worship, Bible reading and encouragement.", to: "/academics" as const },
-              { icon: GraduationCap, title: "2025/2026 Session", desc: "The academic session commences on 5th September, 2025, with admission into Junior and Senior Secondary classes.", to: "/admissions" as const },
-              { icon: Monitor, title: "Digital Readiness", desc: "Our computer laboratory builds skills from basic computer literacy to programming, web development and project-based learning.", to: "/academics" as const },
+              { icon: Clock, title: "Morning Devotion", desc: "Students and teachers gather Monday to Friday from 7:45 am to 8:10 am for prayer, worship, Bible reading and encouragement.", to: "/academics" as const, cta: "See our academic programme" },
+              { icon: GraduationCap, title: "2025/2026 Session", desc: "The academic session commences on 5th September, 2025, with admission into Junior and Senior Secondary classes.", to: "/admissions" as const, cta: "Start an application" },
+              { icon: Monitor, title: "Digital Readiness", desc: "Our computer laboratory builds skills from basic computer literacy to programming, web development and project-based learning.", to: "/academics" as const, cta: "Explore our curriculum" },
             ].map((item) => (
               <article key={item.title} className="rounded-xl bg-white border border-border p-6">
                 <item.icon className="h-6 w-6 text-primary" />
                 <h3 className="mt-4 font-semibold text-ink">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 <Link to={item.to} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                  Learn More <ArrowRight className="h-3.5 w-3.5" />
+                  {item.cta} <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </article>
             ))}
