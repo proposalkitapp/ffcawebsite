@@ -41,7 +41,7 @@ function About() {
             <p className="mt-2 text-primary font-semibold text-xl">Obedience and Excellence</p>
           </div>
           <div>
-            <img src={students} alt="Students" width={1000} height={1200} loading="lazy" className="rounded-lg w-full h-[520px] object-cover" />
+            <img src={students} alt="Firstfruits Christian Academy students in school uniform in a classroom setting" width={1000} height={1200} loading="lazy" className="rounded-lg w-full h-[520px] object-cover" />
           </div>
         </div>
       </section>
