@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
-import { GraduationCap, BookOpen, Building2, ArrowRight, Beaker, Library, Monitor, BedDouble, Trophy, Sprout, Clock, ShieldCheck } from "lucide-react";
+import { GraduationCap, BookOpen, Building2, ArrowRight, Beaker, Library, Monitor, BedDouble, Trophy, Sprout, ShieldCheck } from "lucide-react";
 import hero from "@/assets/hero-school.jpg";
 import students from "@/assets/students.jpg";
 import lab from "@/assets/lab.jpg";

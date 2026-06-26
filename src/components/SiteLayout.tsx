@@ -67,41 +67,38 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-ink text-white/80 mt-20">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Firstfruits Christian Academy" width={44} height={44} className="h-11 w-11 rounded-md object-contain bg-white" />
-              <div className="text-white font-bold">Firstfruits Christian Academy</div>
+      <footer className="bg-ink text-white/75 mt-20">
+        <div className="max-w-7xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-3 mb-5">
+              <img src={logo} alt="Firstfruits Christian Academy" width={48} height={48} className="h-12 w-12 rounded-md object-contain bg-white p-1" />
+              <div>
+                <div className="text-white font-bold leading-tight">Firstfruits Christian Academy</div>
+                <div className="text-xs uppercase tracking-wider text-white/60">Obedience and Excellence</div>
+              </div>
             </div>
-            <p className="text-sm leading-relaxed">Obedience and Excellence. Raising a generation grounded in Godly Christian principles, academic excellence, and sound character.</p>
+            <p className="text-sm leading-relaxed max-w-sm">Raising a generation grounded in Godly Christian principles, academic excellence, and sound character.</p>
           </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+
+          <div className="md:col-span-3">
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Explore</h4>
+            <ul className="space-y-2.5 text-sm">
               {nav.map((n) => (
-                <li key={n.to}><Link to={n.to} className="hover:text-white">{n.label}</Link></li>
+                <li key={n.to}><Link to={n.to} className="hover:text-white transition-colors">{n.label}</Link></li>
               ))}
             </ul>
           </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">Programs</h4>
-            <ul className="space-y-2 text-sm">
-              <li>Junior Secondary (JSS 1–3)</li>
-              <li>Senior Secondary (SSS 1–3)</li>
-              <li>Boarding Facilities</li>
-              <li>BECE & WAEC Centre</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
+
+          <div className="md:col-span-4">
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Get in Touch</h4>
             <ul className="space-y-3 text-sm">
-              <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0" /> Adjacent to Government Estate, Opposite Palm View Estate, Chokwota, Igbo-Etche, Rivers State</li>
-              <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0" /> firstfruit.academy@gmail.com</li>
-              <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0" /> 09056215807, 08066170299, 0808652232</li>
+              <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span>Adjacent Government Estate, Opposite Palm View Estate, Chokwota, Igbo-Etche, Rivers State</span></li>
+              <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><a href="mailto:firstfruit.academy@gmail.com" className="hover:text-white break-all">firstfruit.academy@gmail.com</a></li>
+              <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span>09056215807, 08066170299, 0808652232</span></li>
             </ul>
           </div>
         </div>
+
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-6 py-5 text-xs flex flex-col md:flex-row justify-between gap-2">
             <span>© {new Date().getFullYear()} Firstfruits Christian Academy. All rights reserved.</span>
