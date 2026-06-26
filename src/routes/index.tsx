@@ -16,10 +16,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "A co-educational Christian secondary school in Igbo-Etche, Rivers State. BECE & WAEC approved with fully functional boarding facilities." },
       { property: "og:title", content: "Firstfruits Christian Academy" },
       { property: "og:description", content: "Raising a generation grounded in Godly Christian principles and academic excellence." },
-      { property: "og:image", content: "/og-image.jpg" },
-      { property: "og:url", content: "/" },
+      { property: "og:image", content: "https://ffcawebsite.lovable.app/og-image.jpg" },
+      { property: "og:url", content: "https://ffcawebsite.lovable.app/" },
       { property: "og:type", content: "website" },
-      { name: "twitter:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "https://ffcawebsite.lovable.app/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
