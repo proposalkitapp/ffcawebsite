@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://firstfruitsca.org";
+const DEFAULT_SITE_URL = "https://ffcawebsite.lovable.app";
 
 type SitemapEntry = {
   path: string;
@@ -21,20 +21,13 @@ function normalizeOrigin(value: string | undefined | null) {
   return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
 }
 
-export function getSiteOrigin(request?: Request) {
-  const configured = normalizeOrigin(
-    process.env.SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL,
-  );
-  if (configured) return configured;
-
-  const host = request?.headers.get("x-forwarded-host") || request?.headers.get("host");
-  if (host) {
-    const protocol = request?.headers.get("x-forwarded-proto") || (host.includes("localhost") ? "http" : "https");
-    return `${protocol}://${host}`;
-  }
-
-  return DEFAULT_SITE_URL;
+export function getSiteOrigin(_request?: Request) {
+  // Always advertise the canonical published domain so sitemap entries are
+  // stable across preview, sandbox, and Vercel hosts.
+  const configured = normalizeOrigin(process.env.SITE_URL);
+  return configured || DEFAULT_SITE_URL;
 }
+
 
 export function buildSitemapXml(origin: string) {
   const urls = entries
